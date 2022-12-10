@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class FlightsTest {
+class FlightsTest {
 
   Flight flight;
 
@@ -19,27 +19,27 @@ public class FlightsTest {
 
   @Test
   @DisplayName("Test flight number")
-  public void testFlightNumber() {
+  void testFlightNumber() {
     assertEquals("AA123", flight.getFlightNumber());
     assertNotEquals(null, flight.getFlightNumber());
   }
 
   @Test
   @DisplayName("Test flight number with invalid format")
-  public void testFlightNumberInvalidFormat() {
+  void testFlightNumberInvalidFormat() {
     assertThrows(RuntimeException.class, () -> new Flight("AA123456", 100));
   }
 
   @Test
   @DisplayName("Test add passenger")
-  public void testAddPassenger() {
+  void testAddPassenger() {
     Passenger passenger = new Passenger("12345678A", "John Doe", "ES");
     assertTrue(flight.addPassenger(passenger));
   }
 
   @Test
   @DisplayName("Test add passenger with less seats")
-  public void testAddPassengerWithLessSeats() {
+  void testAddPassengerWithLessSeats() {
     Flight flight = new Flight("AA123", 1);
     Passenger passenger = new Passenger("12345678A", "John Doe", "ES");
     flight.addPassenger(passenger);
@@ -48,7 +48,7 @@ public class FlightsTest {
 
   @Test
   @DisplayName("Test remove passenger")
-  public void testRemovePassenger() {
+  void testRemovePassenger() {
     Passenger passenger = new Passenger("12345678A", "John Doe", "ES");
     flight.addPassenger(passenger);
     assertTrue(flight.removePassenger(passenger));
