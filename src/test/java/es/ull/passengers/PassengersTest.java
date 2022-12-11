@@ -1,7 +1,6 @@
 package es.ull.passengers;
 
 import org.junit.jupiter.api.*;
-import es.ull.flights.Flight;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PassengersTest {
@@ -36,7 +35,7 @@ class PassengersTest {
   @Test
   @DisplayName("Test passenger country code with invalid format")
   void testPassengerCountryCodeInvalidFormat() {
-    assertThrows(RuntimeException.class, () -> new Passenger("12345678A", "Carlos", "E"));
+    assertThrows(IllegalArgumentException.class, () -> new Passenger("12345678A", "Carlos", "E"));
   }
 
   @Test

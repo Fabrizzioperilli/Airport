@@ -23,7 +23,7 @@ class FlightsTest {
   @Test
   @DisplayName("Test flight number with invalid format")
   void testFlightNumberInvalidFormat() {
-    assertThrows(RuntimeException.class, () -> new Flight("AA123456", 100));
+    assertThrows(IllegalArgumentException.class, () -> new Flight("22222", 50));
   }
 
   @Test

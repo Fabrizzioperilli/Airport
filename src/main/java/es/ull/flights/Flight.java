@@ -39,7 +39,7 @@ public class Flight {
     public Flight(String flightNumber, int seats) {
         Matcher matcher = pattern.matcher(flightNumber);
         if (!matcher.matches()) {
-            throw new RuntimeException("Invalid flight number");
+            throw new IllegalArgumentException("Invalid flight number");
         }
         if (seats < 0) {
            throw new IllegalArgumentException("Invalid number of seats");
@@ -62,7 +62,7 @@ public class Flight {
 
     public boolean addPassenger(Passenger passenger) {
         if (getNumberOfPassengers() >= seats) {
-            throw new RuntimeException("Not enough seats for flight " + getFlightNumber());
+            throw new IllegalStateException("Not enough seats for flight " + getFlightNumber());
         }
         passenger.setFlight(this);
         return passengers.add(passenger);
