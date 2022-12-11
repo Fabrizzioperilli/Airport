@@ -45,6 +45,6 @@ class FlightsTest {
   @Test
   @DisplayName("Invalid number of seats")
   void testInvalidNumberOfSeats() {
-    assertThrows(RuntimeException.class, () -> new Flight("AA123", -1));
+    assertThrows(IllegalArgumentException.class, () -> new Flight("AA123", -1));
   }
 };
