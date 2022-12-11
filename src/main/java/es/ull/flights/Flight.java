@@ -41,6 +41,9 @@ public class Flight {
         if (!matcher.matches()) {
             throw new RuntimeException("Invalid flight number");
         }
+        if (seats < 0) {
+            throw new RuntimeException("Invalid number of seats");
+        }
         this.flightNumber = flightNumber;
         this.seats = seats;
     }
@@ -51,6 +54,10 @@ public class Flight {
 
     public int getNumberOfPassengers() {
         return passengers.size();
+    }
+
+    public int getSeats() {
+        return seats;
     }
 
     public boolean addPassenger(Passenger passenger) {
