@@ -1,4 +1,5 @@
 package es.ull.passengers;
+import es.ull.flights.Flight;
 
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -43,5 +44,13 @@ class PassengersTest {
   void testToString() {
     assertEquals("Passenger Juan Perez with identifier: 12345678A from ES", passenger.toString());
     assertNotEquals(null, passenger.toString());
+  }
+
+  @Test
+  @DisplayName("Test join flight")
+  void testJoinFlight() {
+    Flight flight = new Flight("AA123", 50);
+    passenger.joinFlight(flight);
+    assertEquals(flight, passenger.getFlight());
   }
 };
